@@ -30,12 +30,12 @@ function App() {
           <div className="login">
           <h2>Already have an account</h2>
           <br></br>
-            <form>
+            <form action="/api/users/login" method="POST">
               <input
                 onChange={handleChange}
-                name="username"
-                value={contact.username}
-                placeholder="Username"
+                name="email"
+                value={contact.email}
+                placeholder="Email"
               />
               <input
                 onChange={handleChange}
@@ -43,7 +43,7 @@ function App() {
                 value={contact.password}
                 placeholder="Password"
               />
-              <button className ="button">Login</button>
+              <button type="submit" className ="button">Login</button>
             </form>   
           </div>
           <div className="register">
