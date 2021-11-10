@@ -36,12 +36,14 @@ function App() {
                 name="email"
                 value={contact.email}
                 placeholder="Email"
+                required
               />
               <input
                 onChange={handleChange}
                 name="password"
                 value={contact.password}
                 placeholder="Password"
+                required
               />
               <button type="submit" className ="button">Login</button>
             </form>   
@@ -55,24 +57,28 @@ function App() {
                 name="name"
                 value={contact.name}
                 placeholder="Name"
+                required
               />
               <input
                 onChange={handleChange}
                 name="email"
                 value={contact.email}
                 placeholder="Email"
+                required
               />
               <input
                   onChange={handleChange}
                   name="password"
                   value={contact.password}
                   placeholder="Password"
+                  required
               />
               <input
               onChange={handleChange}
               name="password2"
               value={contact.password2}
               placeholder="Confirm Password"
+              required
             />
               <button type="submit">Register</button>
             </form> 
