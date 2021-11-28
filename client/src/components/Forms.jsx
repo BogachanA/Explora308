@@ -37,7 +37,7 @@ function Forms() {
                         <a className="navbarA" href="#about">About</a>
                     </li>
                     <li className="navbarlogo">
-                        <a href="#profile"><img className="profileLogo" alt="logo" src="./logo.png"/></a>
+                        <a href="/Profile"><img className="profileLogo" alt="logo" src="./logo.png"/></a>
                     </li>
                 </ul>
             </div>

@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-weight: 300;
+  /*font-weight: 300;*/
 }
 
 body {
@@ -171,6 +171,28 @@ font-family: 'Source Code Pro', monospace;
   height: 30%;
   float: left;
 }
+.profile-page {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile-text {
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-weight:bold;
+  font-size: 64;
+}
+
+.profile-photo {
+  width: 98px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 50px;
+}
 
 footer {
   margin:10px;
@@ -274,8 +296,8 @@ input:-webkit-autofill, input:-webkit-autofill:focus, input:-webkit-autofill:hov
 }
 
 input {
-  border: 1px solid rgba(252, 252, 252, 0.8);
-  background-color: rgba(252, 252, 252, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  background-color: rgba(252, 252, 252, 0.75);
   width: 250px;
   border-radius: 3px;
   font-family: "Source Sans Pro", sans-serif;
@@ -284,7 +306,7 @@ input {
   display: block;
   text-align: center;
   font-size: 18px;
-  color: white;
+  color: rgb(0, 0, 0);
   font-weight: 300;
 }
 
@@ -299,3 +321,5 @@ button {
   width: 250px;
   font-size: 18px;
 }
+
+
