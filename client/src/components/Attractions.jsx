@@ -81,7 +81,7 @@ function Attractions() {
                         <img className="imgMap" alt="map" src="./map.png"/>
                     </div>
                     <div className="photocol">
-                        <img className="imgAttraction" alt="hagiasophia" src="./ayasofya.jpg"/>
+                        <img className="imgAttraction" alt="hagiasophia" src="./ayasofya2.jpeg"/>
                     </div>
                 </div>
             </div>
