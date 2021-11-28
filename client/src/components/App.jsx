@@ -6,6 +6,7 @@ function App() {
     email: "",
     password: "",
     password2: "",
+    profilePicture: "",
   });
 
   function handleChange(event) {
@@ -17,6 +18,10 @@ function App() {
         [name]: value
       };
     });
+  }
+
+  function getName() {
+    return contact.name;
   }
 
   return (
@@ -48,6 +53,7 @@ function App() {
               <button type="submit" className ="button">Login</button>
             </form>   
           </div>
+          <br></br>
           <div className="register">
             <h2> <b> Not a user? </b> </h2>
             <br></br>
