@@ -2,13 +2,20 @@ import React, { useState } from "react";
 
 function Profile() {
 
-    const [isEdit, setEdit] = useState(false);    
+    const [isEdit, setEdit] = useState(true);    
      
     const [editContact, setContact] = useState({
         name: "Ataberk Yılmaz",
         username: "ataberkyilmaz",
         email: "ataberkyilmaz@sabanciuniv.edu",
-        phoneNumber: "+905057967160",
+        phoneNumber: "+901234567890",
+        profilePhoto: "./profile-temp.png",
+
+        tempName: "",
+        tempUsername: "",
+        tempEmail: "",
+        tempPhoneNumber: "",
+        tempProfilePhoto: "",
       });
 
       function handleChange(event) {
@@ -21,18 +28,30 @@ function Profile() {
           };
         });
       }
-
-    function changeEdit() {
-        console.log(isEdit);
-        if (isEdit === true) {
-            isEdit = false;
-        }
-        else {
-            isEdit = true;
-        }
-        return isEdit;
-    }
     
+      const  saveEdit = event => {
+            event.preventDefault()
+            if(editContact.tempName != "") {
+                editContact.name = editContact.tempName;
+                editContact.tempName = "";
+            }
+            if(editContact.tempUsername != "") {
+                editContact.username = editContact.tempUsername;
+                editContact.tempUsername = "";
+            }
+            if(editContact.tempEmail != "") {
+                editContact.email = editContact.tempEmail;
+                editContact.tempEmail = "";
+            }
+            if(editContact.tempPhoneNumber != "") {
+                editContact.phoneNumber = editContact.tempPhoneNumber;
+                editContact.tempPhoneNumber = "";
+            }
+
+          setEdit(!isEdit);
+      }
+
+
     return (
         <section>
             <div className="row Navbar">
@@ -61,59 +80,100 @@ function Profile() {
                 
                 <div className = "body profile-page"> 
                     <div className = "profile-photo">
-                        <img className = "profile-photo" alt = "img1" src = "./profile-temp.png"></img>
+                        <img className = "profile-photo" alt = "img1" src = { editContact.profilePhoto }></img>
                     </div>
-                    <div className = "profile-text">  
-                        <h1> { Profile.isEdit } </h1>
+                    <div className = "row">
+                        <button className = "profile-edit-button" onClick={() => setEdit(!isEdit)}>
+                            <img src = "./settings.png" className = "profile-edit-image"></img>
+                        </button>
                     </div>
-                    <button className = "profile-text" onClick={() => setEdit(!isEdit)}> Change Edit </button>
+                    
                     {isEdit ? 
-                        <div className = "profile-text" >
-                        <p> {editContact.name} </p>
-                        <br></br>
-                        <p> {editContact.username} </p>
-                        <br></br>
-                        <p> {editContact.email}</p>
-                        <br></br>
-                        <p> {editContact.phoneNumber} </p>
+                        
+                        <div className = "container row profile-text" >
+                            <br></br>
+                            <p> {editContact.name} </p>
+                            <br></br>
+                            <p> {editContact.username} </p>
+                            <br></br>
+                            <p> {editContact.email}</p>
+                            <br></br>
+                            <p> {editContact.phoneNumber} </p>
                         </div>
 
                         :
-                        <div>
+                        <div className = "container">
                             <form /*action="/api/users/login" method="POST"*/>
+                                {/* <input 
+                                    onChange={handleChange}
+                                    type="file"
+                                    value = {editContact.profilePhoto}
+                                    placeholder="Choose photo"
+                                /> */}
                                 <input
                                     onChange={handleChange}
-                                    name="name"
-                                    value={editContact.name}
+                                    name="tempName"
+                                    value={editContact.tempName}
                                     placeholder="Name - Surname"
                                     required
                                 />
                                 <input
                                     onChange={handleChange}
-                                    name="username"
-                                    value={editContact.username}
+                                    name="tempUsername"
+                                    value={editContact.tempUsername}
                                     placeholder="Username"
                                     required
                                 />
                                 <input
                                     onChange={handleChange}
-                                    name="email"
-                                    value={editContact.email}
+                                    name="tempEmail"
+                                    value={editContact.tempEmail}
                                     placeholder="Email"
                                     required
                                 />
                                 <input
                                     onChange={handleChange}
-                                    name="phoneNumber"
-                                    value={editContact.phoneNumber}
+                                    name="tempPhoneNumber"
+                                    value={editContact.tempPhoneNumber}
                                     placeholder="Phone Number"
                                 />
-                            <button type="submit" className ="button"> Save </button>
+
+                                <a className ="profile-save-button" href="" onClick = {saveEdit}> Save </a>
                             </form>
                         </div>
                         }
-                    
-                    
+                </div>
+            </section>
+            <section>
+                <div className = "container">
+                    <h2> Previous Itenaries </h2>
+                    <br></br>
+                    <ul>
+                        <div className = "row">
+                            <li> Istanbul Trip 1</li>
+                            <p> Kadıköy was visited </p>
+                        </div>
+                        <br></br>
+                        <div className = "row">
+                            <li> Istanbul Trip 2</li>
+                            <p> Beşiktaş was visited </p>
+                        </div>
+                        <br></br>
+                        <div className = "row">
+                            <li> Istanbul Trip 3</li>
+                            <p> Taksim was visited </p>
+                        </div>
+                        <br></br>
+                        <div className = "row">
+                            <li> Istanbul Trip 4</li>
+                            <p> Sultanahmet was visited </p>
+                        </div>
+                        <br></br>
+                        <div className = "row">
+                            <li> Istanbul Trip 5</li>
+                            <p> Caddebostan was visited </p>
+                        </div>
+                    </ul>
                 </div>
             </section>
         </section>
