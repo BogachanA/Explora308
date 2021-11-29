@@ -5,5 +5,6 @@ import Landing from "./components/Landing";
 import Attractions from "./components/Attractions";
 import Profile from "./components/Profile";
 import Forms from "./components/Forms";
+import Attractions from "./components/Attractions";
 
 ReactDOM.render(<Attractions />, document.getElementById("root"));
