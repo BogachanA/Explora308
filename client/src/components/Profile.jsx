@@ -1,10 +1,17 @@
 import React, { useState } from "react";
+import jwt_decode from "jwt-decode";
 
 function Profile() {
 
     const [isEdit, setEdit] = useState(true);    
-     
-    const [editContact, setContact] = useState({
+    const token = localStorage.getItem("token");
+
+    const [editContact, setContact] = useState(token ? { ...jwt_decode(token.replace("Bearer ", "")), tempName: "",
+        tempUsername: "",
+        tempEmail: "",
+        tempPhoneNumber: "",
+        tempProfilePhoto: ""
+    }: {
         name: "Ataberk Yılmaz",
         username: "ataberkyilmaz",
         email: "ataberkyilmaz@sabanciuniv.edu",
@@ -17,6 +24,8 @@ function Profile() {
         tempPhoneNumber: "",
         tempProfilePhoto: "",
       });
+
+    console.log(editContact)
 
       function handleChange(event) {
         const { name, value } = event.target;

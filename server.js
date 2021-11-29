@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const env = require("dotenv");
+const cors = require('cors')
+
 
 env.config();
 
@@ -15,7 +17,7 @@ const fetchPlaces = require("./routes/db_populate/placefetch");
 //fetchPlaces();
 
 const app = express();
-
+app.use(cors())
 // Bodyparser middleware
 app.use(
     bodyParser.urlencoded({
@@ -45,7 +47,7 @@ require("./config/passport")(passport);
 // Routes
 app.use("/api/users", users);
 
-//app.use("/api/browse/places", browse_place);
+app.use("/browse", browse_place);
 
 const port = process.env.PORT || 5000;
 
