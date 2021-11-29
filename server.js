@@ -9,10 +9,10 @@ env.config();
 var path = require('path');
 global.appRoot = path.resolve(__dirname);
 
-
+const browse_place = require("./routes/browse/places");
 const users = require("./routes/api/users");
 const fetchPlaces = require("./routes/db_populate/placefetch");
-fetchPlaces();
+//fetchPlaces();
 
 const app = express();
 
@@ -44,7 +44,8 @@ require("./config/passport")(passport);
 
 // Routes
 app.use("/api/users", users);
-// app.use("/api/places", places);
+
+//app.use("/api/browse/places", browse_place);
 
 const port = process.env.PORT || 5000;
 
