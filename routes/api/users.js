@@ -91,7 +91,7 @@ router.post("/login", (req, res) => {
             expiresIn: 31556926 // 1 year in seconds
           },
           (err, token) => {
-            res.json({
+            return res.json({
               success: true,
               token: "Bearer " + token
             });
