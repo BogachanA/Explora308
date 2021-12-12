@@ -14,6 +14,42 @@ body {
   background-size: cover;
 }
 
+
+.aboutDiv{
+  width: 70%;
+  float: left;
+  text-align: center;
+  padding-left: 15%;
+}
+
+.aboutH1{
+  font-size:x-large;
+}
+
+.aboutP{
+  text-align: center;
+  padding-top: 2%;
+}
+
+.textArea{
+  padding-top: 4%;
+}
+
+.textAreap{
+  color:#2B2B2B;
+}
+
+.texta{
+  height:100px;
+}
+
+.parametersC{
+  padding-top: 21px;
+  padding-bottom: 21px;
+  padding-left: 40%;
+  width: 100%;
+}
+
 .react-datepicker-wrapper {
   width: 170px;
   height: 30px;
