@@ -1,9 +1,22 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import ReactStars from "react-rating-stars-component";
+import { useParams } from "react-router";
+import axios from "axios";
 
 function Attractions() {
 
+    const [attraction, setAttraction] = useState({})
+    useEffect(()=> {
+        const id = window.location.pathname.replace("/places/", "");
+        if(id) {
+            axios.get(`http://localhost:5000/browse/attraction/${id}`).then(res => {
+                setAttraction(res.data);
+            })
+        }
+    }, [])
     document.body.style.backgroundColor = "#e7e6e1";
+
+    console.log(attraction.photo_dest)
 
     const ratingChanged = (newRating) => {
         console.log(newRating);
@@ -47,11 +60,11 @@ function Attractions() {
                     <br></br>
                     <div className="row">
                         <div className="columnh1">
-                            <h1 className="h1Attraction">Hagia Sophia</h1>
+                            <h1 className="h1Attraction">{attraction.name}</h1>
                         </div>
                         <div className="columnh5">
                             <h5 className="h5Attraction">Location: Eminönü</h5>
-                            <h5 className="h5Attraction">Category: Cultural and Heritage Tourism</h5>
+                            <h5 className="h5Attraction">Category: {attraction.type}</h5>
                         </div>
                     </div>
                     <br></br>
@@ -81,7 +94,7 @@ function Attractions() {
                         <img className="imgMap" alt="map" src="./map.png"/>
                     </div>
                     <div className="photocol">
-                        <img className="imgAttraction" alt="hagiasophia" src="./ayasofya2.jpeg"/>
+                        <img width="500" className="imgAttraction" alt="hagiasophia" src={attraction.photo_dest ? attraction.photo_dest.replace("C:\\Users\\tupras\\Desktop\\mern-auth-master", "") : ""}/>
                     </div>
                 </div>
             </div>

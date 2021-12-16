@@ -42,7 +42,11 @@ router.post("/register", (req, res) => {
           newUser.password = hash;
           newUser
             .save()
-            .then(user => res.json(user))
+            .then(user => {
+              const userObj = {...user._doc};
+              delete userObj["password"];
+              return res.json(userObj);
+            })
             .catch(err => console.log(err));
         });
       });
@@ -80,7 +84,9 @@ router.post("/login", (req, res) => {
         // Create JWT Payload
         const payload = {
           id: user.id,
-          name: user.name
+          name: user.name,
+          email: user.email,
+          telephone: user.telephone,
         };
 
         // Sign token
