@@ -1,6 +1,4 @@
 import React, {useState} from "react";
-import locations from "./classes/locations";
-import preferences from "./classes/preferences";
 
 function Contact() {
 
