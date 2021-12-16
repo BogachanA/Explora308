@@ -1,22 +1,11 @@
 import React, {useState} from "react";
 import locations from "./classes/locations";
 import preferences from "./classes/preferences";
-import Select from 'react-select';
-import makeAnimated from 'react-select/animated';
 
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-
-const animatedComponents = makeAnimated();
-
-function Forms() {
+function Contact() {
 
     document.body.style.backgroundColor = "#e7e6e1";
-    const [startDate,
-        setStartDate] = useState(new Date());
-    const [endDate,
-        setEndDate] = useState(new Date());
-
+  
     return (
         <section>
             <div className="row Navbar">
@@ -99,4 +88,4 @@ function Forms() {
     );
 }
 
-export default Forms;
+export default Contact;
