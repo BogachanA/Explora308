@@ -1,18 +1,33 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 function App() {
-  const [contact, setContact] = useState({
+  const [registerForm, setRegisterForm] = useState({
     name: "",
     email: "",
     password: "",
     password2: "",
-    profilePicture: "",
   });
 
-  function handleChange(event) {
+  const [loginForm, setLoginForm] = useState({
+    email: "",
+    password: ""
+  });
+
+
+  function handleLoginFormChange(event) {
+    const { name, value } = event.target;
+    setLoginForm((prevValue) => {
+      return {
+        ...prevValue,
+        [name]: value
+      };
+    });
+  } 
+  function handleRegisterFormChange(event) {
     const { name, value } = event.target;
 
-    setContact((prevValue) => {
+    setRegisterForm((prevValue) => {
       return {
         ...prevValue,
         [name]: value
@@ -20,8 +35,22 @@ function App() {
     });
   }
 
+  const handleLogin = (e) => {
+    e.preventDefault();
+    axios.post('http://localhost:5000/api/users/login', {...loginForm}).then(res => {
+      localStorage.setItem("token", res.data.token);
+    })
+  }
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    axios.post('http://localhost:5000/api/users/register', {...registerForm}).then(res => {
+      console.log(res);
+    })
+  }
+
   function getName() {
-    return contact.name;
+    return registerForm.name;
   }
 
   return (
@@ -35,18 +64,19 @@ function App() {
           <div className="login">
           <h2>Already have an account</h2>
           <br></br>
-            <form action="/api/users/login" method="POST">
+            <form onSubmit={handleLogin}>
               <input
-                onChange={handleChange}
+                onChange={handleLoginFormChange}
                 name="email"
-                value={contact.email}
+                value={loginForm.email}
                 placeholder="Email"
                 required
               />
               <input
-                onChange={handleChange}
+                onChange={handleLoginFormChange}
                 name="password"
-                value={contact.password}
+                value={loginForm.password}
+                type="password"
                 placeholder="Password"
                 required
               />
@@ -57,32 +87,34 @@ function App() {
           <div className="register">
             <h2> <b> Not a user? </b> </h2>
             <br></br>
-            <form action="/api/users/register" method="POST">
+            <form onSubmit={handleRegister}>
               <input
-                onChange={handleChange}
+                onChange={handleRegisterFormChange}
                 name="name"
-                value={contact.name}
+                value={registerForm.name}
                 placeholder="Name"
                 required
               />
               <input
-                onChange={handleChange}
+                onChange={handleRegisterFormChange}
                 name="email"
-                value={contact.email}
+                value={registerForm.email}
                 placeholder="Email"
                 required
               />
               <input
-                  onChange={handleChange}
+                  onChange={handleRegisterFormChange}
                   name="password"
-                  value={contact.password}
+                  type="password"
+                  value={registerForm.password}
                   placeholder="Password"
                   required
               />
               <input
-              onChange={handleChange}
+              onChange={handleRegisterFormChange}
               name="password2"
-              value={contact.password2}
+              type="password"
+              value={registerForm.password2}
               placeholder="Confirm Password"
               required
             />
