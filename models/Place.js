@@ -15,7 +15,7 @@ const PlaceSchema = new Schema({
     },
     type: {
         type: String,
-        enum: ["restaurant","museum","bar","tourist_attraction","night_club"],
+        enum: ["restaurant","museum","bar","tourist_attraction","night_club","shopping_mall","store","park","hotel"],
         required: true
     },
     photo_dest: {
