@@ -14,6 +14,7 @@ global.appRoot = path.resolve(__dirname);
 const browse_place = require("./routes/browse/places");
 const users = require("./routes/api/users");
 const fetchPlaces = require("./routes/db_populate/placefetch");
+console.log("Heyo");
 //fetchPlaces();
 
 const app = express();

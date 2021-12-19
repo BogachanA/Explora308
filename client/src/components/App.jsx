@@ -40,6 +40,7 @@ function App() {
     axios.post('http://localhost:5000/api/users/login', {...loginForm}).then(res => {
       localStorage.setItem("token", res.data.token);
     })
+    window.location.href = "/profile";
   }
 
   const handleRegister = (e) => {
