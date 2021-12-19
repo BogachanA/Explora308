@@ -254,6 +254,11 @@ font-family: 'Source Code Pro', monospace;
   padding-top: 50px;
 }
 
+.itinerary-body {
+  padding-top: 20px;
+  text-align: center;
+}
+
 footer {
   margin:10px;
   text-align: center;
