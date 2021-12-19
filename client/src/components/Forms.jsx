@@ -3,11 +3,16 @@ import locations from "./classes/locations";
 import preferences from "./classes/preferences";
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
+import axios from "axios";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const animatedComponents = makeAnimated();
+
+function printData(){
+    console.log("Data here");
+}
 
 function Forms() {
 
@@ -16,6 +21,66 @@ function Forms() {
         setStartDate] = useState(new Date());
     const [endDate,
         setEndDate] = useState(new Date());
+
+    const [placeVal, setPlaceVal] = useState([]);
+    const [activityVal, setActivityVal] = useState([]);
+
+    const handlePlaceChange = (e) => {
+        setPlaceVal(Array.isArray(e) ? e.map(x => x.value) : []);
+        console.log("changed val of place");
+        setItForm({
+            start: startDate,
+            end: endDate,
+            place: placeVal,
+            activity: activityVal
+        });
+    }
+
+    const handleActivityChange = (e) => {
+        setActivityVal(Array.isArray(e) ? e.map(x => x.value) : []);
+        console.log("changed val of activity", activityVal);
+        setItForm({
+            start: startDate,
+            end: endDate,
+            place: placeVal,
+            activity: activityVal
+        });
+    }
+
+    const [itForm, setItForm] = useState({
+        start: startDate,
+        end: endDate,
+        place: placeVal,
+        activity: activityVal
+    });
+
+    function handleFormChange(event) {
+        const { name, value } = event.target;
+
+        setItForm((prevValue) => {
+            return {
+                ...prevValue,
+                [name]: value
+            };
+        });
+    }
+
+
+
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        setItForm({
+            start: startDate,
+            end: endDate,
+            place: placeVal,
+            activity: activityVal
+        });
+        console.log(itForm);
+        //axios.post() //TODO
+    }
+
+
 
     return (
         <section>
@@ -42,6 +107,7 @@ function Forms() {
                 </ul>
             </div>
             <section className="row">
+
                 <div className="leftCol column">
                     <ul>
                         <br></br>
@@ -72,6 +138,7 @@ function Forms() {
                         </li>
                     </ul>
                 </div>
+                <form onSubmit={handleFormSubmit}>
                 <div className="columnInputs">
                     <br></br>
                     <br></br>
@@ -96,28 +163,33 @@ function Forms() {
 
                     <div className="inputAreas1 inputAreas">
                         <Select
+                            id={"placeChoice"}
                             className="choice"
                             closeMenuOnSelect={false}
                             components={animatedComponents}
-                            defaultValue={[locations[0]]}
+                            defaultValue={[]}
+                            onChange={handlePlaceChange}
                             isMulti
                             options={locations}/>
                     </div>
                     <div className="inputAreas">
                         <Select
+                            id={"activityChoice"}
                             className="choice"
                             closeMenuOnSelect={false}
+                            onChange={handleActivityChange}
                             components={animatedComponents}
-                            defaultValue={[preferences[0]]}
+                            defaultValue={[]}
                             isMulti
                             options={preferences}/>
                     </div>
                     <br></br>
                     <div className="inputAreas">
-                        <button className="formssubmit" method="POST">Submit</button>
+                        <button className="formssubmit" type="submit">Submit</button>
                     </div>
 
                 </div>
+                </form>
                 <div className="column"></div>
             </section>
         </section>

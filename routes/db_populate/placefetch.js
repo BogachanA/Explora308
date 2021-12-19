@@ -5,7 +5,7 @@ var path = require('path');
 
 const config = {
     method: 'get',
-    url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=41.03712650412947%2C%2028.98236527862421&type=tourist_attraction&rankby=prominence&radius=30000&key=${process.env.GOOGLE_API_KEY}`,
+    url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=41.05347370869304%2C%2029.024912923065326&type=tourist_attraction&rankby=prominence&radius=30000&key=${process.env.GOOGLE_API_KEY}`,
     headers: { }
 };
 let imgDir = path.resolve("res/img/browse/");
@@ -27,7 +27,7 @@ const fetchPlaces = async () => axios(config)
                 url: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=3000&photo_reference=${photo_ref}&key=${process.env.GOOGLE_API_KEY}`,
                 headers: { }
             };
-            let photo_dest = path.resolve("res/img/browse/"+res.place_id+".jpg");
+            let photo_dest = path.resolve("res/img/places/"+res.place_id+".jpg");
             axios(photoreq)
                 .then(function (photoresp){
                     //download options
@@ -56,6 +56,7 @@ const fetchPlaces = async () => axios(config)
                 geometry: res.geometry.location,
                 photo_dest: photo_dest,
             });
+
             np.save()
                 .catch(err => console.log(err));
 
