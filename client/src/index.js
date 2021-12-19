@@ -7,5 +7,6 @@ import Profile from "./components/Profile";
 import Forms from "./components/Forms";
 import Contact from "./components/Contact";
 import About from "./components/About";
+import Itinerary from "./components/Itinerary";
 
-ReactDOM.render(<Profile/>, document.getElementById("root"));
+ReactDOM.render(<Itinerary/>, document.getElementById("root"));
