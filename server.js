@@ -12,6 +12,7 @@ var path = require('path');
 global.appRoot = path.resolve(__dirname);
 
 const browse_place = require("./routes/browse/places");
+const iten = require("./routes/browse/createItinerary");
 const users = require("./routes/api/users");
 const fetchPlaces = require("./routes/db_populate/placefetch");
 console.log("Heyo");
@@ -26,6 +27,7 @@ app.use(
     })
 );
 app.use(bodyParser.json());
+
 
 // DB Config
 const db = require("./config/keys").mongoURI;
@@ -46,9 +48,20 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 // Routes
-app.use("/api/users", users);
+/*
+app.use(function(req, res, next){
+    res.locals.user = req.user;
+    next();
+});
+*/
 
+
+
+app.use("/api/users", users);
 app.use("/browse", browse_place);
+app.use("/create",iten);
+
+
 
 const port = process.env.PORT || 5000;
 
