@@ -91,8 +91,8 @@ function shuffleArray(array) {
 }
 
 function findID(arr, id){
-    for(let a of arr){
-        if(a.toString()===id.toString()) return true;
+    for(const a of arr){
+        if(a===id) return true;
     }
     return false;
 }
@@ -154,8 +154,8 @@ router.post("/newTrip",async (req,res) => {
             // Use `doc`
             let distH = Math.abs(doc.geometry.lat - latlon[currPlace].lat);
             let distV = Math.abs(doc.geometry.lng - latlon[currPlace].lng);
-            if(distV < 0.05 && distH < 0.037 && !findID(placeList,doc._id)){
-                placesList.push(doc._id);
+            if(distV < 0.05 && distH < 0.037 && !findID(placeList,String(doc._id))){
+                placesList.push(String(doc._id));
                 count++;
             }
             if(count===2) break;
@@ -166,8 +166,8 @@ router.post("/newTrip",async (req,res) => {
             // Use `doc`
             let distH = Math.abs(docN.geometry.lat - latlon[currPlace].lat);
             let distV = Math.abs(docN.geometry.lng - latlon[currPlace].lng);
-            if(distV < 0.05 && distH < 0.037 && !findID(placeList,docN._id)){
-                placesList.push(docN._id);
+            if(distV < 0.05 && distH < 0.037 && !findID(placeList,String(docN._id))){
+                placesList.push(String(docN._id));
                 count++;
             }
             if(count===1) break;
@@ -180,8 +180,8 @@ router.post("/newTrip",async (req,res) => {
             // Use `doc`
             let distH = Math.abs(docR.geometry.lat - latlon[currPlace].lat);
             let distV = Math.abs(docR.geometry.lng - latlon[currPlace].lng);
-            if(distV < 0.05 && distH < 0.037 && !findID(restaurantList,docR._id)){
-                restaurantList.push(docR._id);
+            if(distV < 0.05 && distH < 0.037 && !findID(restaurantList,String(docR._id))){
+                restaurantList.push(String(docR._id));
                 count++;
             }
             if(count===2) break;
