@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 function App() {
+
   const [registerForm, setRegisterForm] = useState({
     name: "",
     email: "",
@@ -13,7 +14,6 @@ function App() {
     email: "",
     password: ""
   });
-
 
   function handleLoginFormChange(event) {
     const { name, value } = event.target;
@@ -60,7 +60,7 @@ function App() {
   if(token ? loginLink = "/profile" : loginLink = "/auth");
 
   return (
-    <div>
+    <div style = {{backgroundImage: "url('./ocami.jpg')"}}>
       <div className="row Navbar">
           <ul>
               <li className="navbar">
@@ -82,9 +82,9 @@ function App() {
                   <a href = {loginLink} ><img className="profileLogo" alt="logo" src="./logo.png"/></a>
               </li>
           </ul>
-        </div>
+      </div>
       <div className="main-screen">
-        <h1 className="header">
+        <h1 className="header container">
           <strong>Welcome to Explora!</strong>
         </h1>
         <br></br>

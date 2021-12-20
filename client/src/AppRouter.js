@@ -25,7 +25,7 @@ const AppRouter = () => (
         <Route path="/contact" component={ Contact } pageName="Contact" />
         <Route path="/about" component={ About } pageName="About" />
         <RestrictedRoute path="/profile" exact component={Profile} pageName="Profile" />
-        <RestrictedRoute path="/newTrip" exact component={Forms} pageName="Form" />
+        <Route path="/newTrip" exact component={Forms} pageName="Form" />
         {/*
         <RestrictedRoute path="/users" exact component={ Users } roles={ [ROLES.SUPER_ADMIN] } pageName={ PAGES.USERS.TITLES.LIST } />
         <RestrictedRoute path="/users/edit/:id" exact component={ EditUser } roles={ [ROLES.SUPER_ADMIN] } pageName={ PAGES.USERS.TITLES.EDIT } />
