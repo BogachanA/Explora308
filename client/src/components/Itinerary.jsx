@@ -31,16 +31,16 @@ function Itinerary() {
         itinerary.push(
             <div>
                 <br></br>
-                <h1> Day {i+1}: {Itinerary.date + i} </h1>
+                <h1> Day {i+1}: {Itinerary.date.getDay} . {Itinerary.date.getMonth} . {Itinerary.date.getFullYear} </h1>
                 <p>--------------------------------------</p>
                 <h2> </h2>
-                <li> 1 - {Itinerary.restaurants[2 * i + 0]} </li>
-                <li> 2 - {Itinerary.restaurants[2 * i + 1]} </li>
+                <li> 1 - {Itinerary.restaurants[2 * i + 0].name} </li>
+                <li> 2 - {Itinerary.restaurants[2 * i + 1].name} </li>
                 <p>--------------------------------------</p>
                 <h2> Places to visit: </h2>
-                <li> 1 - {Itinerary.attractions[3 * i + 0]} </li>
-                <li> 2 - {Itinerary.attractions[3 * i + 1]} </li>
-                <li> 3 - {Itinerary.attractions[3 * i + 2]} </li>
+                <li> 1 - {Itinerary.attractions[3 * i + 0].name} </li>
+                <li> 2 - {Itinerary.attractions[3 * i + 1].name} </li>
+                <li> 3 - {Itinerary.attractions[3 * i + 2].name} </li>
                 <p>--------------------------------------</p>
             </div>
         );
@@ -83,8 +83,6 @@ function Itinerary() {
                     )}
                 </div>
                 <br></br>
-
-
             </div>
         </section>
         
