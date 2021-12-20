@@ -10,7 +10,6 @@ const config = {
     headers: { }
 };
 let imgDir = path.resolve("res/img/browse/");
-
 const logg = () => {
     console.log("imgDir: "+ imgDir);
 }
