@@ -39,7 +39,7 @@ const fetchPlaces = async () => axios(config)
                         dest: photo_dest,
                         //extractFilename: false, // will be saved to /path/to/dest/image
                     }
-
+                    //comment
                     download.image(options)
                         .then(({ filename }) => {
                             //console.log('Saved to', filename)  // saved to /path/to/dest/image.jpg
