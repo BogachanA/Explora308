@@ -68,7 +68,7 @@ function Forms() {
 
 
 
-    const handleFormSubmit = (e) => {
+    const handleFormSubmit = async (e) => {
         e.preventDefault();
         setItForm({
             start: startDate,
@@ -77,7 +77,24 @@ function Forms() {
             activity: activityVal
         });
         console.log(itForm);
-        //axios.post() //TODO
+
+        var formData = new FormData();
+        formData.append("start",itForm.start);
+        formData.append("end",itForm.end);
+        formData.append("activity",itForm.activity);
+        formData.append("place",itForm.place);
+
+        await axios({method: "post",
+            url: "http://localhost:5000/create/newTrip",
+            data: itForm,
+            headers: { "Content-Type": "application/json" }
+        }).then(r => {
+            console.log("success:");
+            window.location.href = "http://localhost:3000/itinerary/"+String(r.data);
+        }).catch(err => {
+            console.log(err);
+        }); //TODO
+        //console.log(res);
     }
 
 

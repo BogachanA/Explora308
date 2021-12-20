@@ -1,6 +1,17 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
+import axios from "axios";
 
 function Itinerary() {
+
+    const [itinerary, setItinerary] = useState({})
+    useEffect(()=> {
+        const id = window.location.pathname.replace("/itinerary/", "");
+        if(id) {
+            axios.get(`http://localhost:5000/browse/itineraries/${id}`).then(res => {
+                setItinerary(res.data);
+            })
+        }
+    }, []);
 
     document.body.style.backgroundColor = "#e7e6e1";
     
