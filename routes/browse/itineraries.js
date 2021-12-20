@@ -36,7 +36,8 @@ router.get("/itineraries/:pid",async (req,res) => {
     }
 
     let data = {
-        it: iti,
+        day: iti.duration,
+        date: iti.date,
         accomodation: acc,
         restaurants: restList,
         attractions: placeList

@@ -18,7 +18,6 @@ function Itinerary() {
         if(id) {
             axios.get(`http://localhost:5000/browse_it/itineraries/${id}`).then(res => {
                 setItinerary(res.data);
-                console.log(res.data);
             })
         }
     }, []);
@@ -27,7 +26,7 @@ function Itinerary() {
 
     const itinerary = [];
 
-    for (let i = 0; i < day; i++) {
+    for (let i = 0; i < Itinerary.day; i++) {
         itinerary.push(
             <div>
                 <br></br>
@@ -72,7 +71,9 @@ function Itinerary() {
                         <a className="navbarA" href="/about">About</a>
                     </li>
                     <li className="navbarlogo">
-                        <a href= {loginLink} ><img className="profileLogo" alt="logo" src="./logo.png"/></a>
+
+                        <a href="#profile"><img className="profileLogo" alt="logo" src="../logo.png"/></a>
+
                     </li>
                 </ul>
             </div>
