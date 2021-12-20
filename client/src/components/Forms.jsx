@@ -97,29 +97,32 @@ function Forms() {
         //console.log(res);
     }
 
+    let loginLink = "";
+    const token = localStorage.getItem("token");
 
+    if(token ? loginLink = "/profile" : loginLink = "/auth");
 
     return (
         <section>
             <div className="row Navbar">
                 <ul>
                     <li className="navbar">
-                        <a className="navbarA exp" href="#Forms">Explora</a>
+                        <a className="navbarA exp" href="/">Explora</a>
                     </li>
                     <li className="navbar dropdown">
-                        <p className="navbarA">News</p>
+                        <p className="navbarA">Trip</p>
                         <div className="dropdown-content">
-                            <a className="navbarA" href="#news">Hi</a>
+                            <a className="navbarA" href="/newTrip">New Trip</a>
                         </div>
                     </li>
                     <li className="navbar">
-                        <a className="navbarA" href="#contact">Contact</a>
+                        <a className="navbarA" href="/contact">Contact</a>
                     </li>
                     <li className="navbar">
-                        <a className="navbarA" href="#about">About</a>
+                        <a className="navbarA" href="/about">About</a>
                     </li>
                     <li className="navbarlogo">
-                        <a href="/Profile"><img className="profileLogo" alt="logo" src="./logo.png"/></a>
+                        <a href= {loginLink} ><img className="profileLogo" alt="logo" src="./logo.png"/></a>
                     </li>
                 </ul>
             </div>
