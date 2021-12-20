@@ -9,6 +9,8 @@ import App from "./components/App";
 import Attractions from "./components/Attractions";
 import Profile from "./components/Profile";
 import Itinerary from "./components/Itinerary";
+import Contact from "./components/Contact";
+import About from "./components/About";
 export const history = createBrowserHistory();
 
 const AppRouter = () => (
@@ -20,6 +22,8 @@ const AppRouter = () => (
         <Route path="/itinerary/:id" exact component={ Itinerary } pageName="Itinerary" />
           {/*<Route path="/places" exact component={ Products } pageName="Places" />*/}
         <Route path="/places/:id" component={ Attractions } pageName="Attractions" />
+        <Route path="/contact" component={ Contact } pageName="Contact" />
+        <Route path="/about" component={ About } pageName="About" />
         <RestrictedRoute path="/profile" exact component={Profile} pageName="Profile" />
         <RestrictedRoute path="/newTrip" exact component={Forms} pageName="Form" />
         {/*

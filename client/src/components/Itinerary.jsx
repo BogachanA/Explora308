@@ -46,7 +46,11 @@ function Itinerary() {
     }
 
     document.body.style.backgroundColor = "#e7e6e1";
-    
+    let loginLink = "";
+    const token = localStorage.getItem("token");
+
+    if(token ? loginLink = "/profile" : loginLink = "/auth");
+
     return(
         <section>
             <div className="row Navbar">
@@ -55,19 +59,21 @@ function Itinerary() {
                         <a className="navbarA exp" href="/">Explora</a>
                     </li>
                     <li className="navbar dropdown">
-                        <p className="navbarA">News</p>
+                        <p className="navbarA">Trip</p>
                         <div className="dropdown-content">
-                            <a className="navbarA" href="#news">Hi</a>
+                            <a className="navbarA" href="/newTrip">New Trip</a>
                         </div>
                     </li>
                     <li className="navbar">
-                        <a className="navbarA" href="#contact">Contact</a>
+                        <a className="navbarA" href="/contact">Contact</a>
                     </li>
                     <li className="navbar">
-                        <a className="navbarA" href="#about">About</a>
+                        <a className="navbarA" href="/about">About</a>
                     </li>
                     <li className="navbarlogo">
+
                         <a href="#profile"><img className="profileLogo" alt="logo" src="../logo.png"/></a>
+
                     </li>
                 </ul>
             </div>
@@ -84,7 +90,6 @@ function Itinerary() {
                 <br></br>
             </div>
         </section>
-        
     )
 
 }
