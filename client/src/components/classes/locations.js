@@ -12,9 +12,6 @@ const locations = [
         value: 'beyoglu',
         label: 'Beyoğlu'
     }, {
-        value: 'samatya',
-        label: 'Samatya'
-    }, {
         value: 'maslak',
         label: 'Maslak'
     }, {
