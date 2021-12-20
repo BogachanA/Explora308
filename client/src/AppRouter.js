@@ -8,6 +8,7 @@ import Forms from "./components/Forms";
 import App from "./components/App";
 import Attractions from "./components/Attractions";
 import Profile from "./components/Profile";
+import Itinerary from "./components/Itinerary";
 export const history = createBrowserHistory();
 
 const AppRouter = () => (
@@ -16,6 +17,7 @@ const AppRouter = () => (
       <Switch>
         <Route path="/" exact component={ Landing } pageName="Landing"  />
         <Route path="/auth" exact component={ App } />
+        <Route path="/itinerary/:id" exact component={ Itinerary } pageName="Itinerary" />
           {/*<Route path="/places" exact component={ Products } pageName="Places" />*/}
         <Route path="/places/:id" component={ Attractions } pageName="Attractions" />
         <RestrictedRoute path="/profile" exact component={Profile} pageName="Profile" />

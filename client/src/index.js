@@ -9,5 +9,5 @@ import Contact from "./components/Contact";
 import About from "./components/About";
 import Itinerary from "./components/Itinerary";
 import AppRouter from "./AppRouter";
-ReactDOM.render(<Itinerary/>, document.getElementById("root"));
+ReactDOM.render(<AppRouter/>, document.getElementById("root"));
 
