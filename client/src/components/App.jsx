@@ -54,8 +54,35 @@ function App() {
     return registerForm.name;
   }
 
+  let loginLink = "";
+  const token = localStorage.getItem("token");
+
+  if(token ? loginLink = "/profile" : loginLink = "/auth");
+
   return (
     <div>
+      <div className="row Navbar">
+          <ul>
+              <li className="navbar">
+                  <a className="navbarA exp" href="/">Explora</a>
+              </li>
+              <li className="navbar dropdown">
+                  <p className="navbarA">Trip</p>
+                  <div className="dropdown-content">
+                      <a className="navbarA" href="/newTrip">New Trip</a>
+                  </div>
+              </li>
+              <li className="navbar">
+                  <a className="navbarA" href="/contact">Contact</a>
+              </li>
+              <li className="navbar">
+                  <a className="navbarA" href="/about">About</a>
+              </li>
+              <li className="navbarlogo">
+                  <a href = {loginLink} ><img className="profileLogo" alt="logo" src="./logo.png"/></a>
+              </li>
+          </ul>
+        </div>
       <div className="main-screen">
         <h1 className="header">
           <strong>Welcome to Explora!</strong>
