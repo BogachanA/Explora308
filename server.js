@@ -12,6 +12,7 @@ var path = require('path');
 global.appRoot = path.resolve(__dirname);
 
 const browse_place = require("./routes/browse/places");
+const browse_it = require("./routes/browse/itineraries");
 const iten = require("./routes/browse/createItinerary");
 const users = require("./routes/api/users");
 const fetchPlaces = require("./routes/db_populate/placefetch");
@@ -59,6 +60,7 @@ app.use(function(req, res, next){
 
 app.use("/api/users", users);
 app.use("/browse", browse_place);
+app.use("/browse_it", browse_it);
 app.use("/create",iten);
 
 

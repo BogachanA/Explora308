@@ -100,11 +100,11 @@ function findID(arr, id){
 router.post("/newTrip",async (req,res) => {
 
     //Daycount
-    console.log(req.body);
+    //console.log(req.body);
     let st = new Date(req.body.start);
     let en = new Date(req.body.end);
     let dayCount= Math.floor((en-st) / (1000*60*60*24)) + 1;
-    console.log(dayCount);
+    //console.log(dayCount);
     //Place for each day
     let placeList = req.body.place;
     let placeDayMatch = {}
@@ -190,13 +190,13 @@ router.post("/newTrip",async (req,res) => {
 
 
     }
-
+    /*
     console.log(placesList);
     console.log("*******************");
     console.log(restaurantList);
     console.log("*******************");
     console.log(res.locals.user);
-
+*/
     /*
     const token = localStorage.getItem("token");
 
@@ -214,7 +214,7 @@ router.post("/newTrip",async (req,res) => {
         duration: dayCount
     });
 
-    console.log(it);
+    //console.log(it);
     /*
     const it = new Itinerary({
        owner
