@@ -40,19 +40,19 @@ function Profile() {
     
       const  saveEdit = event => {
             event.preventDefault()
-            if(editContact.tempName != "") {
+            if(editContact.tempName !== "") {
                 editContact.name = editContact.tempName;
                 editContact.tempName = "";
             }
-            if(editContact.tempUsername != "") {
+            if(editContact.tempUsername !== "") {
                 editContact.username = editContact.tempUsername;
                 editContact.tempUsername = "";
             }
-            if(editContact.tempEmail != "") {
+            if(editContact.tempEmail !== "") {
                 editContact.email = editContact.tempEmail;
                 editContact.tempEmail = "";
             }
-            if(editContact.tempPhoneNumber != "") {
+            if(editContact.tempPhoneNumber !== "") {
                 editContact.phoneNumber = editContact.tempPhoneNumber;
                 editContact.tempPhoneNumber = "";
             }
